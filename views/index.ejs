@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="w-full h-[100vh] bg-zinc-900 text-white p-10 flex justify-center items-center flex-col">
+        <h3 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500 w-[350px] text-center">Postgram</h3>
+        <form action="/register" method="post" class="flex mt-6 flex-col gap-3 w-[20%] items-center justify-center">
+            <input class="px-3 py-2 outline-none border-2 border-zinc-800 rounded-md ml-2 w-[300px]" type="text" name="name" placeholder="Name">
+            <input class="px-3 py-2 outline-none border-2 border-zinc-800 rounded-md ml-2 w-[300px]" type="text" name="username" placeholder="Username">
+            <input class="px-3 py-2 outline-none border-2 border-zinc-800 rounded-md ml-2 w-[300px]" type="password" name="password" placeholder="Password">
+            <input class="px-3 py-2 outline-none border-2 border-zinc-800 rounded-md ml-2 w-[300px]" type="email" name="email" placeholder="Email">
+            <input class="px-3 py-2 outline-none border-2 border-zinc-800 rounded-md ml-2 w-[300px]" type="number" name="age" placeholder="Age">
+            <input class="px-5 py-2 w-[300px] bg-blue-600 rounded-md ml-2 mt-2 hover:bg-blue-700 cursor-pointer" type="submit" value="Create Account">
+        </form>
+        <p class="text-sm mt-4">
+            Already have an account? <a href="/login" class="text-blue-600">Login</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="w-full min-h-screen bg-zinc-900 text-white p-10 ">
+        <div class="flex justify-between items-center">
+            <h1 class="text-7xl text-start text-pink-400 font-extrabold">Postgram</h1>
+            <div class="flex gap-4">
+                <a href="/profile/<%= user._id %>" class="border-2 px-3 hover:scale-95 py-1 text-md hover:border-pink-500">My Profile</a>
+                <a href="/logout" class="border-2 px-3 hover:scale-95 py-1 text-md hover:border-red-600 ml-4">Logout</a>
+            </div>
+        </div>
+        <h2 class="text-md text-start mt-3 ml-2">Where people post their thoughts</h2>
+        <div class="flex mt-16 flex-wrap gap-4 p-4">
+            <% posts.reverse().forEach(post => { %>
+           <div class="w-[330px] p-4 mt-2 border-2 h-54 border-zinc-600 rounded-md bg-zinc-800">
+                <h4 class="text-sm text-blue-500 mb-2 hover:underline">
+                    <a href="/profile/<%= post.user._id %>">@<%= post.user.username%></a>
+                </h4>
+                <div class="flex justify-between">
+                    <p class="text-md tracking-tight max-w-[70%]"><%= post.content%></p>
+                    <p class="text-sm text-zinc-500 mt-[4px]"><%= new Date(post.date).toLocaleString('en-IN',{dateStyle: 'medium', timestyle: 'short'})%></p>
+                </div>
+                <small class="mt-2 inline-block"><%= post.likes.length%>🩷</small>
+                <div class="btns gap-4 flex mt-6">
+                    <a href="/like/<%= post._id%>" class="text-pink-500">
+                        <%= post.likes.indexOf(user._id) === -1 ? "Like" : "Unlike"%>
+                    </a>   
+                </div>
+            </div>
+        <% }) %>
+        </div>
+    </div>
+</body>
+</html>
